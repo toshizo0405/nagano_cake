@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+
+  <div class="col-md-6 offset-md-1">
+<h2 class="text-left">商品新規登録</h2>
+<p id="notice"></p>
+
+<%= form_with model: @item, url: admin_items_path, method: :post do |item|  %>
+
+<form>
+  <label for="inputImage">商品画像</label>
+  <%= item.file_field :image, placeholder: "選択されていません", accept: "image/*" %>
+
+    <div class="form-group">
+    <p id="notice"></p>
+        <%= item.label :商品名 %>
+        <%= item.text_field :name, class: "form-control name", placeholder: "商品名" %>
+    <p id="notice"></p>
+        <%= item.label :商品説明 %>
+        <%= item.text_area :explanation, class: "form-control explanation", placeholder: "ここに説明文を記述します" %><br>
+    <p id="notice"></p>
+        <%= item.label :"税抜価格(円)"%>
+        <%= item.text_field :price, class: "form-control price", placeholder:1000 %>
+    <p id="notice"></p>
+        <%= item.submit ' 新規登録 ' , class: "btn btn-success" %>
+    </div>
+  </form>
+  <% end %>
+  </div>
+  </div>
+</div>
