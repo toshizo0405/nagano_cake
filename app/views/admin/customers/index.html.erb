@@ -1,0 +1,36 @@
+<div class="col-md-8 offset-md-1">
+  <b>会員一覧</b>
+  <p id="notice"></p>
+  <table class="table thead-class">
+    <thead>
+      <tr class="table-secondary">
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+        <th colspan="5"></th><br>
+      </tr>
+    </thead>
+      <% @customers.each do |customer| %>
+    <tbody>
+      <tr>
+      <td><%= customer.id %></td>
+
+      <td>
+
+        <%= link_to customer.first_name+customer.family_name, admin_customer_path(customer.id) %>
+      </td>
+
+      <td><%= customer.email %></td>
+
+      <td>
+        <% if customer.is_deleted %>
+          <b class="text-secondary">退会</b>
+        <% else %>
+          <b class="text-success">有効</b>
+        <% end %>
+      </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
