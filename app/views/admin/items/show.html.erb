@@ -5,10 +5,10 @@
 
 
 　　　<table class="table">
-      <tr>商品詳細</tr>、
+      <tr>商品詳細</tr>
       <tr>
-      <% if @item.item_image.attached? %>
-        <%= image_tag @item.item_image, size: "200x200" %>
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "200x200" %>
       <% else %>
         <%= image_tag 'default-image', size: "200x200" %>
       <% end %>
@@ -22,18 +22,18 @@
 
       <tr><td>商品説明</td><td><%= @item.introduction %></td></tr>
 
-      
 
-      <tr><td>税込価格(税抜価格)</td><td><%= @item.add_tax_price.to_s(:delimited) %><%# モデルにadd_tax_priceというメソッド記述 %>
-      (<%= @item.price.to_s(:delimited) %>)円</td></tr><%#[.to_s(:delimited)]３桁ごとにカンマ表記] %>
+
+      <tr><td>税込価格(税抜価格)</td><td><%= @item.add_tax_price.to_s(:delimited) %>
+      (<%= @item.price.to_s(:delimited) %>)円</td></tr>
 
       <tr><td>
         販売ステータス
         </td><td>
-        <% if @item.is_stock %><%# is_stockの情報を取得して在庫があるかチェック %>
-        販売中  <%# true(初期値)の時の表示 %>
+        <% if @item.is_active %>
+        販売中
         <% else %>
-        販売停止中  <%# false(売り切れ)の時の表示 %>
+        販売停止中
         <% end %>
         </td></tr>
       <tr><td><%= link_to '編集する', edit_admin_item_path(@item.id)%></td></tr>
