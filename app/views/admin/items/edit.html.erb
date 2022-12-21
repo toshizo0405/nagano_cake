@@ -1,0 +1,36 @@
+<div class="row">
+
+<div class="col-md-6 offset-md-1">
+<h2 class="text-left">商品編集</h2>
+<p id="notice"></p>
+<%= form_with model: @item, url: admin_item_path, method: :patch do |item|  %>
+
+<form>
+  <label for="inputImage">商品画像</label>
+  <%= item.file_field :image, placeholder: "選択されていません", accept: "image/*" %>
+
+  <div class="form-group">
+  <p id="notice"></p>
+        <%= item.label :商品名 %>
+        <%= item.text_field :name, class: "form-control title" %>
+  <p id="notice"></p>
+        <%= item.label :商品説明 %>
+        <%= item.text_area :introduction, class: "form-control body" %>
+
+  <p id="notice"></p>
+        <%= item.label :"税抜価格(円)" %>
+        <%= item.text_field :price, class: "form-control body" %>
+  </div>
+
+
+  <%= item.radio_button :is_stock, :true %>
+  <%= item.label :is_active, "販売中" %>
+  <%= item.radio_button :is_active, :false %>
+  <%= item.label :is_active, "販売停止中" %>
+
+  <p id="notice"></p>
+  <%= item.submit ' 変更を保存 ' , class: "btn btn-success" %>
+</form>
+<% end %>
+</div>
+</div>
