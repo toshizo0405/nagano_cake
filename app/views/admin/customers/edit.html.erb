@@ -1,0 +1,38 @@
+<div class="col-md-10 offset-md-1">
+  <div class="row">
+<%= render 'admin/homes/error_form', js: @customer %>
+<%# form_withを使い、情報を取得するモデル、rails routesで調べたURL、メソッドを指定して、'f.text_field'でデータを引っ張ってきてください。%>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+<table class="table">
+    <thead>
+      <tr><b><%= @customer.first_name %> <%= @customer.last_name %>さんの会員情報編集 </b></tr>
+    </thead>
+
+      <tbody>
+      <tr><td>会員ID</td><td><%= @customer.id %></td></tr>
+
+      <tr><td>氏名</td><td> <%= f.text_field :first_name %>   <%= f.text_field :last_name %></td></tr>
+
+      <tr><td>フリガナ</td><td><%= f.text_field :first_name_kana %>   <%= f.text_field :last_name_kana %></td></tr>
+
+      <tr><td>郵便番号</td><td><%= f.text_field :postal_code %></td></tr>
+
+      <tr><td>住所</td><td><%= f.text_area :address %></td></tr>
+
+      <tr><td>電話番号</td><td><%= f.text_field :phone_number %></td></tr>
+
+      <tr><td>メールアドレス</td><td><%= f.text_field :email %></td></tr>
+      <tr><td>会員ステータス</td><td>
+        <%# is_deleted(退会フラグ)がfalse(初期値)なら'有効' %>
+        <%= f.radio_button :is_deleted, :false %>
+        <%= f.label :is_deleted, "有効" %>
+        <%# is_deleted(退会フラグ)がtrue(退会処理済み)なら'退会' %>
+        <%= f.radio_button :is_deleted, :true %>
+        <%= f.label :is_deleted, "退会" %>
+      </td></tr>
+    </tbody>
+  </table>
+  <%= f.submit '変更を保存', class: "btn btn-success" %>
+  <% end %>
+  </div>
+  </div>
