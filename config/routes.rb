@@ -5,6 +5,27 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
+
+ 
+ scope module: :public do
+   root 'public/homes#top'
+   get 'about' => 'public/homes#about'
+   resources :items,only:[:index,:show]
+   resources :customers,only:[:show,:edit,:update]
+   resources :cart_items,only:[:index,:update] do
+     collection do
+       delete :destroy_all
+     end
+   end
+   resources :orders,only:[:new,:index,:show,:create] do
+     collection do
+       post :confirm
+       get :thanx
+     end
+   end
+   
+ end
+
 devise_for :admin,skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
