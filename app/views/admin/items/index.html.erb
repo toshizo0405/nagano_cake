@@ -21,14 +21,14 @@
         <%= link_to item.name, admin_item_path(item.id) %>
       </td>
 
-      <td><%= item.price.to_s(:delimited) %></td>
+      <td><%= item.price %></td>
 
 
       <td>
-        <% if item.is_stock %>
-        <b class="text-success">販売中</b> 
+        <% if item.is_active %>
+        <b class="text-success">販売中</b>
         <% else %>
-        <b class="text-secondary">販売停止中</b> 
+        <b class="text-secondary">販売停止中</b>
         <% end %>
       </td>
       </tr>
