@@ -8,8 +8,8 @@ devise_for :customers,skip: [:passwords], controllers: {
 
  
  scope module: :public do
-   root 'public/homes#top'
-   get 'about' => 'public/homes#about'
+   root 'homes#top'
+   get 'about' => 'homes#about'
    resources :items,only:[:index,:show]
    resources :customers,only:[:show,:edit,:update]
    resources :cart_items,only:[:index,:update] do
@@ -23,7 +23,7 @@ devise_for :customers,skip: [:passwords], controllers: {
        get :thanx
      end
    end
-   
+
  end
 
 devise_for :admin,skip: [:registrations, :passwords], controllers: {
@@ -41,4 +41,8 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ 
+
 end
+
+
