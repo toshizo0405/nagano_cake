@@ -18,10 +18,18 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+   protected
+
+   def public_state
+      @public = Public.find_by(email: params[:public][:email])
+      return if !@public
+      if @public.valid_password?(params[:public][:password]) && (@public.is_deleted == false)
+        redirect_to new_public_registration
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
+  end
