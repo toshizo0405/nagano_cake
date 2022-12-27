@@ -6,12 +6,16 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 
- 
+
  scope module: :public do
    root 'homes#top'
    get 'about' => 'homes#about'
    resources :items,only:[:index,:show]
    resources :customers,only:[:show,:edit,:update]
+   get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+   patch '/customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
+
+
    resources :cart_items,only:[:index,:update] do
      collection do
        delete :destroy_all
@@ -41,7 +45,7 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
- 
+
 
 end
 

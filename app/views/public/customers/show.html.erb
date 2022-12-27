@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-2">
+<h4><b>マイページ</b></h4>
+</div>
+<div class="col-md-8">
+<p id="notice"></p>
+<h4><b>登録情報</b> &emsp;
+<%= link_to "編集する",edit_customer_path(@customer),class: "btn btn-success" %></h4>
+<table class="table table-bordered">
+ <p id="notice"></p>
+    <tr>
+      <td class="table-secondary">
+        氏名
+      </td>
+      <td>
+       <%= @customer.last_name %> <%= @customer.first_name %>
+      </td>
+    </tr>
+
+    <tr>
+     <td class="table-secondary">
+      フリガナ
+     </td>
+     <td>
+      <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+     </td>
+    </tr>
+
+     <tr>
+      <td class="table-secondary">
+        郵便番号
+      </td>
+      <td>
+       <%= @customer.postal_code %>
+      </td>
+     </tr>
+
+    <tr>
+      <td class="table-secondary">
+        住所
+      </td>
+      <td>
+       <%= @customer.address %>
+      </td>
+    </tr>
+
+    <tr>
+     <td class="table-secondary">
+      電話番号
+     </td>
+     <td>
+      <%= @customer.telephone_number %>
+     </td>
+    </tr>
+
+    <tr>
+     <td class="table-secondary">
+      メールアドレス
+     </td>
+     <td>
+      <%= @customer.email %>
+     </td>
+    </tr>
+  </table>
+
+  <p id="notice"></p>
+  <h4><b>注文履歴</b> &emsp;  <%=link_to "一覧を見る", orders_path, class: "btn btn-primary" %></h4>
+    </div>
+  </div>
+</div>
