@@ -1,0 +1,35 @@
+<div class="flex-container">
+  <div class="row">
+    <div class="col-md-3 offset-md-1">
+
+
+     <h1>商品一覧</h1>
+
+    </div>
+      <div class="col-md-3">
+        <h4>(全<%=@items.count %>件）</h4>
+      </div>
+
+    <div class="row"></div>
+    <% @items.each do |item| %>
+     <div class="col-md-3">
+       <ul class="list-inline">
+         <% if item.image.attached? %>
+           <%= link_to item_path(item.id) do %>
+             <%= image_tag item.get_item_image(200,200) %>
+           <% end %>
+          <% else %>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag 'default-image',size: "200x200" %>
+            <% end %>
+          <% end %><br>
+          <%= item.name %>
+          <p>商品価格（税込）</p>
+          　<%= item.add_tax_price.to_s(:delimited) %> 円
+       </ul>
+     </div>
+    <% end %>
+
+
+  </div>
+</div>
