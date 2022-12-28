@@ -16,7 +16,7 @@ devise_for :customers,skip: [:passwords], controllers: {
    patch '/customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
 
 
-   resources :cart_items,only:[:index,:update] do
+   resources :cart_items,only:[:index,:update,:create,:destroy] do
      collection do
        delete :destroy_all
      end
