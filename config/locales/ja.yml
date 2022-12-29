@@ -4,7 +4,7 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
-        
+
       order_item:
         production_status_method:
           cannot_manufactured: "製作不可"
