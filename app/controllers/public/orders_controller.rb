@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
+    @order=Order.new
   end
 
   def index
@@ -9,6 +10,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+
   end
 
   def confirm
