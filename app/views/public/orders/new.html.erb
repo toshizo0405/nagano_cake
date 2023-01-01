@@ -14,13 +14,11 @@
   <h3>お届け先</h3>
 
     <%= f.radio_button :address,0 %>
-    <%= f.label :ご自身の住所　%>
-
-    <%= current_customer.customer_address %>
-     <%= current_customer.last_name+current_customer.first_name %>
+    <%= f.label :address,"ご自身の住所" %>
+    <%= current_customer.address %>
 
 
-    <%= f.submit "確認画面へ進む" %>
+    <%= f.submit "確認画面へ進む"  %>
 
 
 
