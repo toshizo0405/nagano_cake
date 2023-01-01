@@ -11,7 +11,9 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order=Order.new(order_params)
-    
+    @order.customer_id=current_customer.id
+    @order.save
+
   end
 
   def confirm
@@ -19,4 +21,12 @@ class Public::OrdersController < ApplicationController
 
   def thanx
   end
+
+
+  private
+
+  def order_params
+    params.require(:order).permit(:payment_method,:address)
+  end
+
 end
