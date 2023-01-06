@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    
+
     @order=Order.new(order_params)
     @order.customer_id=current_customer.id
     @order.save
@@ -18,10 +18,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    binding.pry
     @order=Order.new(order_params)
     @order.postal_code=current_customer.postal_code
     @order.address=current_customer.address
     @order.name=current_customer.first_name+current_customer.last.name
+
   end
 
   def thanx
@@ -31,7 +33,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method,:address,:postal_code,:neme)
+    params.require(:order).permit(:payment_method,:select_address,:postal_code,:neme)
   end
 
 end
