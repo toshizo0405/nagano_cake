@@ -25,4 +25,20 @@
     </tbody>
   </table>
   </div>
+  <div class="col-4 offset-1">
+  <table class="table table-bordered">
+    <tr class="table-background">
+      <td style="width: 50%" class="table-active">送料</td>
+      <td style="width: 50%">800</td>
+    </tr>
+    <tr class="table-background">
+      <td style="width: 50%" class="table-active">商品合計</td>
+      <td style="width: 50%"><%= @items_price.to_s(:delimited) %></td>
+    </tr>
+    <tr class="table-background">
+      <td style="width: 50%" class="table-active">請求金額</td>
+      <td style="width: 50%"><%= @total_payment.to_s(:delimited) %></td>
+    </tr>
+  </table>
+</div>
 </div>

@@ -33,13 +33,11 @@ class Public::OrdersController < ApplicationController
          @order.postal_code=params[:order][:postal_code]
          @order.name=params[:order][:name]
          @order.address=params[:order][:address]
-
-
     end
-
-
-
-
+    @cart_items = current_customer.cart_items
+    @shipping_cost = 800
+    @items_price = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @total_payment = @shipping_cost + @items_price
   end
 
   def thanx
