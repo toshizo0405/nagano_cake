@@ -40,5 +40,15 @@
       <td style="width: 50%"><%= @total_payment.to_s(:delimited) %></td>
     </tr>
   </table>
+
+  <b>支払い方法</b>
+  <%= @order.payment_method_i18n %>
+
+  <b>お届け先</b>
+  <%= "〒" + @order.postal_code + @order.address %><br>
+  <%= @order.name %>
+
+
+
 </div>
 </div>
