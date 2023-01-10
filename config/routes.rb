@@ -22,6 +22,7 @@ devise_for :customers,skip: [:passwords], controllers: {
      end
    end
    get 'orders/thanx' => 'orders#thanx'
+   
    resources :orders,only:[:new,:index,:show,:create]
     post 'orders/confirm' => 'orders#confirm'
 
