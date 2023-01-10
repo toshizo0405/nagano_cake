@@ -21,9 +21,10 @@ devise_for :customers,skip: [:passwords], controllers: {
        delete :destroy_all
      end
    end
+   get 'orders/thanx' => 'orders#thanx'
    resources :orders,only:[:new,:index,:show,:create]
     post 'orders/confirm' => 'orders#confirm'
-    get 'orders/thanx' => 'orders#thanx'
+
 
 
  end
