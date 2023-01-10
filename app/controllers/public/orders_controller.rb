@@ -17,7 +17,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.each do |cart_item|
         @order_item= OrderItem.create(order_id: @order.id,
                                       item_id: cart_item.item_id,
-                                      amount: cart_item.amount,
+                                      quantity: cart_item.amount,
                                       price: cart_item.item.price
                                       )
       end
