@@ -8,6 +8,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @items_price=0
+    @order.order_items.each do |order_item|
+      @items_price=@items_price + order_item.quantity*order_item.price
+    end
   end
 
   def create
