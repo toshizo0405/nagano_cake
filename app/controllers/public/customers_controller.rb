@@ -11,9 +11,9 @@ class Public::CustomersController < ApplicationController
 
   def updete
     @public = Public.find(params[:id])
-  
+
     @public.update(public_params)
-  
+
     redirect_to edit_customer_path(@public.id)
 
   end
@@ -26,15 +26,15 @@ class Public::CustomersController < ApplicationController
 
 
   def withdraw
-  
+
     @customer = current_customer
-    
+
     @customer.update(is_deleted: true)
-    
+
     reset_session
-    
+
     redirect_to root_path
-  
+
   end
 
 end
