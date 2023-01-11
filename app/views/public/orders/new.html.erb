@@ -3,12 +3,12 @@
   <h3>支払い方法</h3>
 
   <%= form_with model: @order,url: "/orders/confirm",method: :post do |f| %>
-   <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-   <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+   <%= f.radio_button :payment, Order.payments.key(0) %>
+   <%= f.label :payment_credit_card, Order.payments_i18n[:credit_card] %>
 
 
-   <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-   <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %>
+   <%= f.radio_button :payment, Order.payments.key(1) %>
+   <%= f.label :payment_transfer, Order.payments_i18n[:transfer] %>
 
 
   <h3>お届け先</h3>
