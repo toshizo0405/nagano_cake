@@ -57,7 +57,7 @@
                 <%= link_to cart_items_path,class:'nav-link text-light' do %>
                 <i class="fas fa-sign-out-alt"></i> カート
                 <% end %>
-                <%= link_to destroy_customer_session_path,class:'nav-link text-light' do %>
+                <%= link_to destroy_customer_session_path,class:'nav-link text-light', method: :delete do %>
                 <i class="fas fa-sign-out-alt"></i> ログアウト
                 <% end %>
               <% else %>
@@ -77,7 +77,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to  new_admin_session_path,class: 'nav-link text-light' do %>
+                  <%= link_to  customer_session_path,class: 'nav-link text-light' do %>
                   <i class="fas fa-sign-in-alt"></i> ログイン
                   <% end %>
                 </li>
