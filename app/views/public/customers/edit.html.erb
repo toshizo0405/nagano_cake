@@ -1,6 +1,6 @@
 <a>会員情報編集</a>
 
-<%= form_with model: @customer,url: customer_path(@customer.id) do |customer| %>
+<%= form_with model: @customer,url: customers_information_path do |customer| %>
   <table>
     <tr>
       <td>
@@ -58,5 +58,5 @@
   </table>
 
   <%= customer.submit '編集内容を保存',class: "btn btn-success" %>
-  <%= link_to "退会する", unsubscribe_path(@customer), method: :get,class: "btn btn-danger" %>
+  <%= link_to "退会する", customers_unsubscribe_path, method: :get,class: "btn btn-danger" %>
 <% end %>

@@ -10,11 +10,16 @@ devise_for :customers,skip: [:passwords], controllers: {
  scope module: :public do
    root 'homes#top'
    get 'about' => 'homes#about'
-   resources :items,only:[:index,:show]
-   resources :customers,only:[:show,:edit,:update]
-   get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
-   patch '/customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
 
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/my_page' =>'customers#show'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+
+
+
+   resources :items,only:[:index,:show]
 
    resources :cart_items,only:[:index,:update,:create,:destroy] do
      collection do
@@ -22,7 +27,7 @@ devise_for :customers,skip: [:passwords], controllers: {
      end
    end
    get 'orders/thanx' => 'orders#thanx'
-   
+
    resources :orders,only:[:new,:index,:show,:create]
     post 'orders/confirm' => 'orders#confirm'
 
