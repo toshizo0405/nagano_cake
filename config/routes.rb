@@ -44,8 +44,9 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
     get "/home/about" => "homes#about",as: 'about'
     resources :items, only:[:index,:new,:create,:show,:edit,:update]
     resources :customers,only:[:index,:show,:edit,:update]
-    resources :orders,only:[:show,:update]
-    resources :order_items,only:[:update]
+    patch '/orders/:id' => "orders#update"
+    resources :orders,only:[:show]
+    patch '/order_items/:id' =>"order_items#update"
   end
 
 
