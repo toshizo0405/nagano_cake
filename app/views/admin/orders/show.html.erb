@@ -11,7 +11,7 @@
          <tr>
         <th class= "order-show">注文日</th>
         <td><%= @order.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-        
+
           <tr>
         <th class= "order-show">配送先</th>
         <td>〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></td>
@@ -39,20 +39,26 @@
         <%  @order_items.each do |order_item| %>
         <tr>
           <td><%= order_item.item.name %></td>
-          <td><%= order_item.price %></td>
+          <td><%= order_item.add_tax_price.to_s(:delimited) %> </td>
           <td><%= order_item.quantity %></td>
-          <td><%= ((order_item.price)*(order_item.quantity)) %> </td>
-
+          <td><%= ((order_item.add_tax_price)*(order_item.quantity)) %> </td>
+          <% @total+= ((order_item.add_tax_price)*(order_item.quantity)) %>
         </tr>
-          <% end %>
+        <% end %>
       </table>
     </div>
 
 
     <div class="total">
-     <h4>商品合計     <%= @order.claim %>円</h4>
-     <h4>送料　　　    <%= postage = @order.postage.to_i %>円</h4>
-     <h4>請求金額合計　<%= @order.claim + postage %>円</h4>
+    <div class="row justify-content-end">
+     <h4> 商品合計　　<%= @total %>円</h4>
+    </div>
+    <div class="row justify-content-end">
+     <h4>送料　　　<%= postage = @order.postage.to_i %>円</h4>
+    </div>
+    <div class="row justify-content-end">
+     <h4>請求金額合計　<%= @total + postage %>円</h4>
+    </div>
     </div>
   </div>
 
