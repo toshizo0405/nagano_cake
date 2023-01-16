@@ -1,21 +1,16 @@
 <div class="container">
+    　<h2>商品詳細</h2>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-4">
 
-
-　　　<table class="table">
-      <tr>商品詳細</tr>
-      <tr>
       <% if @item.image.attached? %>
         <%= image_tag @item.image, size: "200x200" %>
       <% else %>
         <%= image_tag 'default-image', size: "200x200" %>
       <% end %>
-      </tr>
-     </table>
-      </div>
-    <div class="col-md-9">
+    </div>
+    <div class="col-4">
     <table>
       <tbody>
       <tr><td>商品名</td><td><%= @item.name %></td></tr>
