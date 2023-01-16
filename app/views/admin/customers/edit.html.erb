@@ -1,11 +1,11 @@
 <div class="col-md-10 offset-md-1">
   <div class="row">
-<%= render 'admin/homes/error_form', js: @customer %>
-<%# form_withを使い、情報を取得するモデル、rails routesで調べたURL、メソッドを指定して、'f.text_field'でデータを引っ張ってきてください。%>
+
+
 <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
 <table class="table">
     <thead>
-      <tr><b><%= @customer.first_name %> <%= @customer.last_name %>さんの会員情報編集 </b></tr>
+      <tr><b><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集 </b></tr>
     </thead>
 
       <tbody>
@@ -23,10 +23,10 @@
 
       <tr><td>メールアドレス</td><td><%= f.text_field :email %></td></tr>
       <tr><td>会員ステータス</td><td>
-        <%# is_deleted(退会フラグ)がfalse(初期値)なら'有効' %>
+
         <%= f.radio_button :is_deleted, :false %>
         <%= f.label :is_deleted, "有効" %>
-        <%# is_deleted(退会フラグ)がtrue(退会処理済み)なら'退会' %>
+
         <%= f.radio_button :is_deleted, :true %>
         <%= f.label :is_deleted, "退会" %>
       </td></tr>

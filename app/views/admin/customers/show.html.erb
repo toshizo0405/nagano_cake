@@ -2,7 +2,7 @@
   <div class="row">
 <table class="table">
     <thead>
-      <tr><b><%= @customer.first_name %> <%= @customer.family_name %>さんの会員詳細</b></tr>
+      <tr><b><%= @customer.last_name %> <%= @customer.first_name %>さんの会員詳細</b></tr>
     </thead>
 
     <tbody>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="col-md-6">
-    <%= link_to '注文履歴一覧を見る(未実装)', admin_root_path, class:"btn btn-primary" %>
+    <%= link_to '注文履歴一覧を見る', admin_root_path, class:"btn btn-primary" %>
     </div>
   </div>
 </div>
