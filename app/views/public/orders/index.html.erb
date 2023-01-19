@@ -13,8 +13,6 @@
 
       <th>支払い金額</th>
 
-      <th>ステータス</th>
-
       <th>注文詳細</th>
 
   </tr>
@@ -40,9 +38,9 @@
       <% end %>
     </td>
 
-    <td><%= order.claim %></td>
+    <td><%= order.claim %>円</td>
 
-    <td><%= order.order_status %></td>
+
 
     <td><%= link_to "表示する",order_path(order.id) %></td>
 

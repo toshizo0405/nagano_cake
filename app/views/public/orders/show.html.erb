@@ -27,10 +27,7 @@
             <td class="table-active">支払い方法</td>
             <td><%= @order.payment_i18n %></td>
           </tr>
-          <tr>
-            <td class="table-active">ステータス</td>
-            <td><%= @order.order_status %></td>
-          </tr>
+
         </tbody>
       </table>
     </div>
@@ -40,7 +37,7 @@
       <table class="table table-bordered table-background">
         <tr>
           <td class="table-active">商品合計</td>
-          <td><%= @items_price.to_s %></td>
+          <td><%= @items_price.to_s(:delimited) %></td>
         </tr>
         <tr>
           <td class="table-active">送料</td>
@@ -70,9 +67,9 @@
           <% @order.order_items.all.each do |order_item| %>
             <tr class="table-background">
               <td><%= order_item.item.name %></td>
-              <td>¥<%= (order_item.item.price).to_s(:delimited) %></td>
+              <td>¥<%= (order_item.item.add_tax_price).to_s(:delimited) %></td>
               <td><%= order_item.quantity %>　個</td>
-              <td>¥<%= (order_item.item.price*order_item.quantity).to_s(:delimited) %></td>
+              <td>¥<%= (order_item.item.add_tax_price*order_item.quantity).to_s(:delimited) %></td>
             </tr>
           <% end %>
         </tbody>

@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @items_price=0
     @order.order_items.each do |order_item|
-      @items_price=@items_price + order_item.quantity*order_item.price
+      @items_price=@items_price + order_item.quantity*order_item.item.add_tax_price
     end
   end
 
