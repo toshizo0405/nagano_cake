@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
     case resource
     when Admin
       admin_root_path
-    when Castomer
-      root_path
+    when Customer
+      customers_my_page_path
     end
   end
 
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     case resource
     when Admin
       new_admin_session_path
-    when Castomer
+    when Customer
       root_path
     end
   end
