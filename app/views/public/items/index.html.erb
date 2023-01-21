@@ -15,7 +15,7 @@
            <ul>
              <% if item.image.attached? %>
                <%= link_to item_path(item.id) do %>
-                 <%= image_tag item.get_item_image(200,200) %>
+                 <%= image_tag item.get_item_image(100,100) %>
                <% end %>
               <% else %>
                 <%= link_to item_path(item.id) do %>
