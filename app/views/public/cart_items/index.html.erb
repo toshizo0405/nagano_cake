@@ -43,7 +43,7 @@
   </table>
   <div class="row">
           <div class="col-9">
-             <div><%= link_to "買い物を続ける",  items_path ,class: "btn btn-primary" %></div>
+             <div><%= link_to "買い物を続ける",  root_path ,class: "btn btn-primary" %></div>
           <tr>
           </div>
           <div class="col-3">
@@ -51,7 +51,7 @@
                 <% @cart_items.each do |cart_item| %>
                 <td> <% @total +=  (cart_item.item.add_tax_price)* cart_item.amount %></td>
                 <% end %>
-                <%= @total.to_s(:delimited) %>
+                <%= @total.to_s(:delimited) %>円
           </div>
           </tr>
         </div>
