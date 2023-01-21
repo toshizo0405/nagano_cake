@@ -13,8 +13,10 @@
         <% @items.first(8).each do |item| %>
          <div class="col-3">
            <ul>
-             <%= image_tag item.get_item_image(100,100) %>
-             <%= item.name %>
+             <%= link_to item_path(item.id) do %>
+               <%= image_tag item.get_item_image(100,100) %>
+              <% end %>
+               <%= item.name %>
               <p>商品価格（税込）</p>
               　<%= item.add_tax_price.to_s(:delimited) %> 円
            </ul>
