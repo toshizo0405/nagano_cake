@@ -10,19 +10,11 @@
 
 
       <div class="row">
-        <% @items.each do |item| %>
+        <% @items.first(8).each do |item| %>
          <div class="col-3">
            <ul>
-             <% if item.image.attached? %>
-               <%= link_to item_path(item.id) do %>
-                 <%= image_tag item.get_item_image(100,100) %>
-               <% end %>
-              <% else %>
-                <%= link_to item_path(item.id) do %>
-                  <%= image_tag 'default-image',size: "200x200" %>
-                <% end %>
-              <% end %><br>
-              <%= item.name %>
+             <%= image_tag item.get_item_image(100,100) %>
+             <%= item.name %>
               <p>商品価格（税込）</p>
               　<%= item.add_tax_price.to_s(:delimited) %> 円
            </ul>
