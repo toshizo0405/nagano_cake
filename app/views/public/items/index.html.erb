@@ -10,7 +10,7 @@
 
 
       <div class="row">
-        <% @items.first(8).each do |item| %>
+        <% @items.each do |item| %>
          <div class="col-3">
            <ul>
              <%= link_to item_path(item.id) do %>
@@ -22,6 +22,7 @@
            </ul>
          </div>
         <% end %>
+
       </div>
 
 
