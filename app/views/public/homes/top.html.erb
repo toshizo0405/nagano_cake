@@ -16,11 +16,11 @@
       <ul class="list-inline">
     <% if item.image.attached? %>
       <%= link_to item_path(item.id) do %>
-        <%= image_tag item.image %>
+        <%= image_tag item.get_item_image(100,100) %>
       <% end %>
     <% else %>
       <%= link_to item_path(item.id) do %>
-        <%= image_tag 'default-image', size: "200x200" %>
+        <%= image_tag 'default-image', size: "100x100" %>
       <% end %>
     <% end %>
     <br>
