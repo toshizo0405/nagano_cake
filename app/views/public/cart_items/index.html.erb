@@ -24,7 +24,7 @@
           <td>
             <%= form_with model: cart_item, url: cart_item_path(cart_item),method: :patch do |f|%>
               <div class="form-group mt-1">
-               <%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+               <%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],selected: cart_item.amount %>
                <%= f.submit "変更", class: "btn btn-success" %>
               </div>
             <% end %>
