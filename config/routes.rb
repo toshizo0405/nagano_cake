@@ -5,6 +5,8 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
+
+
  scope module: :public do
    root 'homes#top'
    get 'about' => 'homes#about'
