@@ -6,7 +6,6 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 
-
  scope module: :public do
    root 'homes#top'
    get 'about' => 'homes#about'
@@ -14,11 +13,10 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update'
     get 'customers/my_page' =>'customers#show'
+   
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
-
-
-
+    
    resources :items,only:[:index,:show]
 
    resources :cart_items,only:[:index,:update,:create,:destroy] do
